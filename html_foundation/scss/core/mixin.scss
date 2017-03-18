@@ -1,0 +1,98 @@
+// 変数
+$black: #222222;
+$brown: #5B210D;
+$red: #FA3935;
+
+// リンク色変え
+@mixin link-colors($color) {
+	color: $color;
+	text-decoration: none;
+	&:hover {
+		color: lighten($color, 15%);
+		text-decoration: underline;
+	}
+	&:visited {
+		color: desaturate($color, 50%);
+	}
+}
+
+// グラデーション
+@mixin bg-gradient($angle: 180deg, $color: #0bd, $amount: 20%) {
+	background: linear-gradient($angle, $color, adjust-hue($color, $amount)) fixed;
+}
+
+// グラデーションテキスト
+@mixin gradient-text($angle: 45deg, $color: #f82, $amount: 35%) {
+  color: $color;
+  background: -webkit-linear-gradient($angle, $color, adjust-hue($color, $amount));
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  display: inline-block;
+}
+
+// ストライプ柄の背景 方向と任意の色数指定
+@mixin stripes($direction, $colors) {
+  $length: length($colors);
+ 
+  @if $length > 1 {
+    $stripes: ();
+ 
+    @for $i from 1 through $length {
+      $stripe: (100% / $length) * ($i - 1);
+ 
+      @if $i > 1 {
+        $previous-color: nth($colors, $i - 1);
+        $stripes: append($stripes, $previous-color $stripe, comma);
+      }
+ 
+      $stripes: append($stripes, nth($colors, $i) $stripe, comma);
+    }
+    background: linear-gradient($direction, $stripes) fixed;
+  } @else if $length == 1 {
+    background-color: $colors;
+  }
+}
+
+$mq-breakpoints: (
+	'xsmall': 320px,
+	'small' : 600px,
+	'medium': 768px,
+	'large' : 1024px,
+	'xlarge': 1280px,
+	);
+@mixin mq($breakpoint: medium) {
+	@media screen and (min-width: #{map-get($mq-breakpoints, $breakpoint)}) {
+		@content;
+	}
+}
+
+@mixin ba-block($width: 100%, $height: 100%){
+	display: block;
+	content: '';
+	width: $width;
+	height: $height;
+	position: absolute;
+}
+
+@mixin centering-elements($horizontal: true, $vertical: true) {
+	position: absolute;
+	@if $horizontal and $vertical {
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		} @else if $horizontal {
+			left: 50%;
+			transform: translate(-50%, 0);
+			} @else if $vertical {
+				top: 50%;
+				transform: translate(0, -50%);
+			}
+		}
+		@mixin text-truncate {
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+		}
+		@mixin transition($speed: 0.4s){
+			transition: all $speed;
+		}

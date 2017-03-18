@@ -1,0 +1,11 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
+
+html {
+	font-family: 'Noto Sans Japanese', Osaka, "游ゴシック",YuGothic,"メイリオ",Meiryo, "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","ＭＳ Ｐゴシック","MS PGothic",Sans-Serif;
+	line-height: 1.8;
+	color: $black;
+}
+
+*,*::before,*::after{
+	box-sizing: border-box;
+}
