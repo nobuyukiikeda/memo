@@ -1,0 +1,13 @@
+グルーバルにnode.js gulpを導入  古いバージョンが入ってる場合は削除して再インストール
+	npm install gulp -g
+gulpを導入するプロジェクトディレクトリに移動して、ローカルにgulpを導入
+	npm install gulp --save-dev
+npm init （package.jsonを導入）
+gulpfile.jsを作る
+gulpのタスクに設定する予定のプラグインをインストール
+gulpfile.jsにタスクを書き込んでいく
+タスクを実行
+
+===備考===
+タスクの書き方にくせがありそう。書き方でエラーが出る場合がある。
+権限次第で、sudo付けないといけない。
