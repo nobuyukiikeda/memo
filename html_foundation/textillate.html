@@ -8,13 +8,21 @@
 	<meta name="keyword" content="">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="./css/animate.css">
 	<!-- <link rel="shortcut icon" href="favicon.ico" /> -->
 </head>
 <body>
 	<div class="l-wraper">
-
+		<p class="lead">アニメーションさせたい文字列</p>
 	</div>
 	<script src="./js/jquery-3.2.0.min.js"></script>
+	<script src="./js/jquery.textillate.js"></script>
+	<script src="./js/jquery.lettering.js"></script>
 	<script src="./js/common.js"></script>
+	<script>
+		$(function () {
+			$('.lead').textillate({loop: true});
+		})
+	</script>
 </body>
 </html>
