@@ -54,14 +54,14 @@ $red: #FA3935;
 }
 
 $mq-breakpoints: (
-	'xsmall': 320px,
-	'small' : 600px,
-	'medium': 768px,
-	'large' : 1024px,
-	'xlarge': 1280px,
+	'xsmall': 319px,
+	'small' : 599px,
+	'medium': 767px,
+	'large' : 1023px,
+	'xlarge': 1199px,
 	);
 @mixin mq($breakpoint: medium) {
-	@media screen and (min-width: #{map-get($mq-breakpoints, $breakpoint)}) {
+	@media screen and (max-width: #{map-get($mq-breakpoints, $breakpoint)}) {
 		@content;
 	}
 }
