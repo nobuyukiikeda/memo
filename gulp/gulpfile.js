@@ -5,6 +5,7 @@ var uglify = require("gulp-uglify");
 var plumber = require("gulp-plumber");
 var minify = require("gulp-minify-css");
 var imgmin = require('gulp-imagemin');
+var concat = require('gulp-concat');
 
 gulp.task("sass",function(){
 	gulp.src("scss/style.scss")
