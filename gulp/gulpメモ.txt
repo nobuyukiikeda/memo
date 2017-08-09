@@ -27,5 +27,5 @@ npm install gulp-minify-css --save-dev
 npm install gulp-imagemin --save-dev
 npm install gulp-concat --save-dev
 npm install gulp-pug --save-dev
-npm install *** --save -dev
+npm install gulp-sourcemaps --save -dev
 npm install *** --save -dev

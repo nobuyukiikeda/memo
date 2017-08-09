@@ -7,9 +7,10 @@ var minify = require("gulp-minify-css");
 var imgmin = require('gulp-imagemin');
 var concat = require('gulp-concat');
 var pug = require('gulp-pug');
+var sourcemaps = require('gulp-sourcemaps');
 
 gulp.task("pug",function(){
-	gulp.src(["./pug/**/*.pug", "!./pug/**/_*.pug"])
+	gulp.src(["./pug/*.pug", "!./pug/_*.pug"])
 	.pipe(plumber())
 	.pipe(pug({
 		pretty: true
@@ -20,9 +21,11 @@ gulp.task("pug",function(){
 gulp.task("sass",function(){
 	gulp.src("./scss/style.scss")
 	.pipe(plumber())
+	.pipe(sourcemaps.init())
 	.pipe(sass())
 	.pipe(autoprefixer())
 	.pipe(minify())
+	.pipe(sourcemaps.write('./maps'))
 	.pipe(gulp.dest("./css/"))
 });
 
@@ -33,7 +36,7 @@ gulp.task("watch",function(){
 gulp.task("js",function(){
 	gulp.src(["./js/src/*.js", "./js/src/**/*.js"])
 	.pipe(plumber())
-	// .pipe(concat(all.js))
+	// .pipe(concat("all.js"))
 	.pipe(gulp.dest("./js/min/"));
 })
 
@@ -47,5 +50,6 @@ gulp.task('img',function() {
 gulp.task("default",function(){
 	gulp.watch("./pug/**/*.pug",["pug"]);
 	gulp.watch("./scss/**/*.scss",["sass"]);
+	// gulp.watch("./img_src/**/**",["img"]);
 	gulp.watch(["./js/**/*js","!./js/min/**/*.js"],["js"]);
 })
