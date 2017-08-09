@@ -10,6 +10,7 @@ var pug = require('gulp-pug');
 
 gulp.task("pug",function(){
 	gulp.src(["./pug/**/*.pug", "!./pug/**/_*.pug"])
+	.pipe(plumber())
 	.pipe(pug({
 		pretty: true
 	}))
@@ -32,14 +33,13 @@ gulp.task("watch",function(){
 gulp.task("js",function(){
 	gulp.src(["./js/src/*.js", "./js/src/**/*.js"])
 	.pipe(plumber())
-	.pipe(concat())
+	// .pipe(concat(all.js))
 	.pipe(gulp.dest("./js/min/"));
 })
 
 // 画像圧縮
 gulp.task('img',function() {
-	var imgpath = './imgsrc/*.+(png|jpeg|jpg|svg)';
-	gulp.src(imgpath)
+	gulp.src("./img_src/**/**")
 	.pipe(imgmin())
 	.pipe(gulp.dest('./img/'));
 }); 
