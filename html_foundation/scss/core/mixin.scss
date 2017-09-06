@@ -3,6 +3,20 @@ $black: #222222;
 $brown: #5B210D;
 $red: #FA3935;
 
+//クリアーフィックスmixin
+@mixin cf(){
+  &::before{
+    content: "";
+    display: table;
+  }
+  &::after{
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+
 // リンク色変え
 @mixin link-colors($color) {
 	color: $color;

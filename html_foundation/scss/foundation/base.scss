@@ -10,3 +10,21 @@ html {
 *,*::before,*::after{
 	box-sizing: border-box;
 }
+
+select{
+  appearance: none;
+}
+
+i[class^='icon-'],
+i[class*='icon']{
+  display: inline-block;
+  font-family: Font-Awesome;
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: grayscale;
+}
