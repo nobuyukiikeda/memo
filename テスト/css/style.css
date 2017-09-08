@@ -1,0 +1,36 @@
+.social-wrapper{
+  display: inline-block;
+  margin-top: 4px;
+}
+
+.social-btn{
+  display: inline-block;
+  -webkit-border-radius: 4px;
+          border-radius: 4px;
+  text-align: center;
+  color: #fff;
+  width: 200px;
+  height: 60px;
+  line-height: 60px;
+}
+
+.social-btn--fb{
+  background-color: #77a;
+}
+
+.social-btn--tw{
+  background-color: #a77;
+}
+
+.social-btn--hatebu{
+  background-color: #7a7;
+}
+
+.social-icon i{
+  font-size: 24px;
+  color: #fff;
+}
+
+.social-icon span{
+  color: #fff;
+}
