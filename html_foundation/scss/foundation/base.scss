@@ -11,8 +11,41 @@ html {
 	box-sizing: border-box;
 }
 
+figure{
+  margin: 0;
+}
+
 select{
   appearance: none;
+  &::-ms-expand{
+    display: none;
+  }
+}
+
+input{
+  padding-left: 4px;
+  padding-right: 4px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button{
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+input[type="number"]{
+  -moz-appearance: textfield;
+}
+
+select,input,textarea{
+  outline: none;
+  border: $border;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
 }
 
 i[class^='icon-'],
