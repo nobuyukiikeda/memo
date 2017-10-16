@@ -1,0 +1,19 @@
+meta(charset="utf-8")
+meta(http-equiv="X-UA-Compatible" content="IE=edge")
+meta(name="viewport" content="width=device-width, initial-scale=1.0")
+title #{page.title}
+meta(name="keywords" content=page.keywords)
+meta(name="description" content=page.description)
+
+//- OGP
+meta(property="og:title" content=page.title)
+meta(property="og:type" content=(key == "top" ? "website" : "article"))
+meta(property="og:image" content=domain + page.imgae)
+meta(property="og:url" content=domain + page.url)
+meta(property="og:description" content=description)
+//- OGP Twitter Cards
+meta(name="twitter:card" content="summary")
+meta(name="twitter:site" content="@")
+
+link(href=css_path+"style.css" rel="stylesheet")
+link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet")

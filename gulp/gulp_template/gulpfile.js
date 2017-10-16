@@ -8,10 +8,11 @@ var imgmin = require('gulp-imagemin');
 var concat = require('gulp-concat');
 var pug = require('gulp-pug');
 var sourcemaps = require('gulp-sourcemaps');
+var notify = require('gulp-notify');
 
 gulp.task("pug",function(){
 	gulp.src(["./pug/*.pug", "!./pug/_*.pug"])
-	.pipe(plumber())
+	.pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
 	.pipe(pug({
 		pretty: true
 	}))
@@ -20,7 +21,7 @@ gulp.task("pug",function(){
 
 gulp.task("sass",function(){
 	gulp.src("./scss/style.scss")
-	.pipe(plumber())
+	.pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
 	.pipe(sourcemaps.init())
 	.pipe(sass())
 	.pipe(autoprefixer())
