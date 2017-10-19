@@ -3,6 +3,8 @@ $black: #222222;
 $brown: #5B210D;
 $red: #FA3935;
 
+
+$border: 1px solid #ccc;
 //クリアーフィックスmixin
 @mixin cf(){
   &::before{
@@ -38,13 +40,13 @@ $red: #FA3935;
 // グラデーション
 @mixin btn_gradient( $color: $red ){
   background-color: $color;
-  background: -webkit-gradient(linear, left top, left bottom, from(lighten($color, 15%), to($color));
+  background: -webkit-gradient(linear, left top, left bottom, from(lighten($color, 15%)), to($color));
   background: linear-gradient(lighten($color, 15%), $color);
-  border: 1px solid $color1;
+  border: 1px solid $color;
 }
 
 @mixin gradient( $color: $red ){
-  background: -webkit-gradient(linear, left top, left bottom, from(lighten($color, 15%), to($color));
+  background: -webkit-gradient(linear, left top, left bottom, from(lighten($color, 15%)), to($color));
   background: linear-gradient(lighten($color, 15%), $color);
 }
 
