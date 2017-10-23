@@ -6,7 +6,7 @@ gulpを導入するプロジェクトディレクトリに移動して、ロー�
 package.jsonのテンプレートをコピーしてから npm install をするとセットアップ時にプラグインもまとめて導入してくれる
 --*/
 
-npm install gulp --save -dev
+npm install gulp --save --only=dev
 npm init （package.jsonを導入）
 
 gulpfile.jsを作る（orコピー）
@@ -21,11 +21,9 @@ gulpfile.jsにタスクを書き込んでいく
 ==gulpfile==
 npm install gulp-sass --save-dev
 npm install gulp-autoprefixer --save-dev
-npm install gulp-uglify --save-dev
 npm install gulp-plumber --save-dev
-npm install gulp-minify-css --save-dev
+npm install gulp-clean-css --save-dev
 npm install gulp-imagemin --save-dev
-npm install gulp-concat --save-dev
 npm install gulp-pug --save-dev
 npm install gulp-sourcemaps --save -dev
 npm install gulp-notify --save -dev
