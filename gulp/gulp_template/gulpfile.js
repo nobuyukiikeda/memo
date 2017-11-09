@@ -3,6 +3,7 @@ var sass = require("gulp-sass");
 var autoprefixer = require("gulp-autoprefixer");
 var plumber = require("gulp-plumber");
 var cleanCss = require("gulp-clean-css");
+var cssComb = require("gulp-csscomb");
 var imgmin = require('gulp-imagemin');
 var pug = require('gulp-pug');
 var sourcemaps = require('gulp-sourcemaps');
@@ -22,8 +23,11 @@ gulp.task("sass",function(){
 	.pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
 	.pipe(sourcemaps.init())
 	.pipe(sass())
-	.pipe(autoprefixer())
-	.pipe(cleanCss())
+	.pipe(cssComb())
+	.pipe(autoprefixer({
+		browsers: ['last 2 version', 'iOS >= 8.1', 'Android >= 4.4']
+	}))
+	// .pipe(cleanCss())
 	.pipe(sourcemaps.write('./maps'))
 	.pipe(gulp.dest("./css/"))
 });
