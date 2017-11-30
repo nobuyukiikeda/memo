@@ -18,6 +18,14 @@ $border: 1px solid #ccc;
   }
 }
 
+// FontAwesome
+@mixin awesome($size: 20px){
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  font-size: $size;
+}
 
 // リンク色変え
 @mixin link-colors($color) {
