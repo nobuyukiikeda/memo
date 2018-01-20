@@ -12,6 +12,9 @@ npm init （package.jsonを導入）
 gulpfile.jsを作る（orコピー）
 gulpのタスクに設定する予定のプラグインをインストール（package.jsonでインストールしていなければ）
 gulpfile.jsにタスクを書き込んでいく
+
+#gulp watchを書く時に、./から始めると新規ファイル追加を認識しなくなるので現在パスは/なしから始める
+
 タスクを実行
 
 ===備考===
