@@ -1,0 +1,13 @@
+# HTTPSに統一
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# wwwなしに統一
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.(.*)(:80)?
+RewriteRule ^(.*) https://%1%{REQUEST_URI} [R=301,L]
+
+
+AddType image/svg+xml svg svgz
+AddEncoding gzip svgz
