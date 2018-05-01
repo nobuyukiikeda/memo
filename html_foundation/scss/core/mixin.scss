@@ -3,8 +3,18 @@ $black: #222222;
 $brown: #5B210D;
 $red: #FA3935;
 
-
 $border: 1px solid #ccc;
+
+// 基本ゴシック
+$gothic: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ",Meiryo,"游ゴシック",YuGothic,Osaka,"ＭＳ Ｐゴシック", "MS PGothic",Sans-Serif;
+// 基本明朝
+$mincho: '游明朝体', 'YuMincho', '游明朝', 'Yu Mincho','ヒラギノ明朝 Pro W6', 'HiraMinPro-W6','ヒラギノ明朝 Pro W3', 'Hiragino Mincho Pro', 'ＭＳ 明朝', 'MS Mincho';
+// 端末標準英字フォント
+$sans-serif: 'Trebuchet MS', 'Comic Sans MS', 'Verdana', 'Arial', 'Courier New', 'sans-serif';
+// 端末標準セリフ
+$serif: 'Georgia', 'Times New Roman', 'Roman', 'serif';
+
+
 //クリアーフィックスmixin
 @mixin cf(){
   &::before{

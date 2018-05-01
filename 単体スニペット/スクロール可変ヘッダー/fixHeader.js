@@ -10,7 +10,7 @@ export default function() {
       $header.addClass('is-fixed');
       $main.css('margin-top', $hHeight);
     } else {
-      $('#header').removeClass('is-fixed');
+      $header.removeClass('is-fixed');
       $main.css('margin-top', 0);
     }
   });
