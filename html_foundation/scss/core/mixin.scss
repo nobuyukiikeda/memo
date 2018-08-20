@@ -16,19 +16,15 @@ $sansSerif: 'Trebuchet MS', 'Comic Sans MS', 'Verdana', 'Arial', 'Courier New', 
 // 端末標準セリフ
 $serif: 'Georgia', 'Times New Roman', 'Roman', 'serif';
 
-// イージング
-$easeInOutQuart: cubic-bezier(0.77, 0, 0.175, 1);
-$easeInOutBack: cubic-bezier(0.68, -0.25, 0.265, 1.25);
-
 
 //クリアーフィックスmixin
 @mixin cf(){
   &::before{
-    content: "";
+    content: '';
     display: table;
   }
   &::after{
-    content: "";
+    content: '';
     display: table;
     clear: both;
   }
@@ -88,7 +84,7 @@ $mq-breakpoints-x: (
     'large' : 1024px,
     'xlarge': 1200px,
     );
-@mixin mq($breakpoint: medium) {
+@mixin mq($breakpoint: large) {
 	@media screen and (max-width: #{map-get($mq-breakpoints, $breakpoint)}) {
 		@content;
 	}
