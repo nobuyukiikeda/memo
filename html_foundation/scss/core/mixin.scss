@@ -1,14 +1,16 @@
 // 変数
-$black: #222222;
+$black: #222;
 $red: #FA3935;
 $link: #0099ff;
+
+$textColor: $black;
 
 
 // ボーダースタイル
 $border: 1px solid #ccc;
 
 // 基本ゴシック
-$gothic: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ",Meiryo,"游ゴシック",YuGothic,Osaka,"ＭＳ Ｐゴシック", "MS PGothic",Sans-Serif;
+$gothic: -apple-system, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "游ゴシック", YuGothic,Osaka, "ＭＳ Ｐゴシック", "MS PGothic", Sans-Serif;
 // 基本明朝
 $mincho: '游明朝体', 'YuMincho', '游明朝', 'Yu Mincho','ヒラギノ明朝 Pro W6', 'HiraMinPro-W6','ヒラギノ明朝 Pro W3', 'Hiragino Mincho Pro', 'ＭＳ 明朝', 'MS Mincho';
 // 端末標準英字フォント

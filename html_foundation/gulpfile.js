@@ -1,38 +1,38 @@
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var autoprefixer = require('gulp-autoprefixer');
-var plumber = require('gulp-plumber');
-var uglify = require('gulp-uglify');
-var cleanCss = require('gulp-clean-css');
-var imgmin = require('gulp-imagemin');
-var pug = require('gulp-pug');
-var sourcemaps = require('gulp-sourcemaps');
-var notify = require('gulp-notify');
-var rename = require('gulp-rename');
-var browserify = require('browserify');
-var babelify = require('babelify');
-var source = require('vinyl-source-stream');
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const autoprefixer = require('gulp-autoprefixer');
+const plumber = require('gulp-plumber');
+const uglify = require('gulp-uglify');
+const cleanCss = require('gulp-clean-css');
+const imgmin = require('gulp-imagemin');
+const pug = require('gulp-pug');
+const sourcemaps = require('gulp-sourcemaps');
+const notify = require('gulp-notify');
+const rename = require('gulp-rename');
+const browserify = require('browserify');
+const babelify = require('babelify');
+const source = require('vinyl-source-stream');
 
 gulp.task('pug',function(){
-	gulp.src(['./pug/*.pug', '!./pug/_*.pug'])
+	gulp.src(['./pug/*.pug', '!./pug/_*.pug', './pug/**/*.pug', '!./pug/**/_*.pug'])
 	.pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
 	.pipe(pug({
 		pretty: true
 	}))
-	.pipe(gulp.dest('./html/'));
+	.pipe(gulp.dest('./'));
 });
 
 gulp.task('sass',function(){
 	gulp.src('./scss/style.scss')
 	.pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
 	.pipe(sourcemaps.init())
-	.pipe(sass())
+	.pipe(sass({outputStyle: 'compressed'}))
 	.pipe(autoprefixer({
 		browsers: ['last 2 version', 'iOS >= 8.1', 'Android >= 4.4']
 	}))
 	// .pipe(cleanCss())
-	.pipe(sourcemaps.write('./maps'))
-	.pipe(gulp.dest('./css/'))
+	.pipe(sourcemaps.write('./css/cssmaps'))
+	.pipe(gulp.dest('./css'))
 });
 
 gulp.task('watch',function(){

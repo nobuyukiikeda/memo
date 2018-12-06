@@ -2,10 +2,10 @@
 // 'Noto Sans Japanese', 
 
 html {
-	// font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ",Meiryo,"游ゴシック",YuGothic,Osaka,"ＭＳ Ｐゴシック","MS PGothic",Sans-Serif;
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Hiragino Kaku Gothic ProN, "ヒラギノ角ゴ ProN W3", Arial, "メイリオ", Meiryo, sans-serif;
-	line-height: 1.8;
-	color: $black;
+	color: $textColor;
+  font-size: 16px;
+  font-family: $gothic;
+  line-height: 1.8;
 }
 
 *,*::before,*::after{
@@ -49,16 +49,16 @@ select,input,textarea{
   touch-action: manipulation;
 }
 
-i[class^='icon-'],
-i[class*='icon']{
-  display: inline-block;
-  font-family: Font-Awesome;
-  speak: none;
-  font-style: normal;
-  font-weight: 400;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-font-smoothing: grayscale;
-}
+// i[class^='icon-'],
+// i[class*='icon']{
+//   display: inline-block;
+//   font-family: Font-Awesome;
+//   speak: none;
+//   font-style: normal;
+//   font-weight: 400;
+//   font-variant: normal;
+//   text-transform: none;
+//   line-height: 1;
+//   -webkit-font-smoothing: antialiased;
+//   -moz-font-smoothing: grayscale;
+// }

@@ -17,3 +17,7 @@ AddEncoding gzip svgz
 #AuthName "Input your ID and Password."
 #AuthUserFile /var/www/html/s-chop/manager/html/miracle/.htpasswd
 #require valid-user
+
+#HTTPにリダイレクト
+RewriteCond %{HTTPS} on
+RewriteRule ^(.*)$ http://www.example.com/$1 [R=301,L]

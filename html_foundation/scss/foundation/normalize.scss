@@ -102,7 +102,7 @@ ul,li,a{
  a {
   background-color: transparent; /* 1 */
   -webkit-text-decoration-skip: objects; /* 2 */
-  display: block;
+  display: inline-block;
 }
 
 /**
@@ -167,9 +167,9 @@ ul,li,a{
 }
 
 h2,h3,h4,h5,p{
+  font-size: 1em;
   padding: 0;
   margin: 0;
-  font-size: 1em;
 }
 
 /**

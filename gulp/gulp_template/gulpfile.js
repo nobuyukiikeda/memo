@@ -9,7 +9,8 @@ const gulp = require('gulp'),
 	  mozjpeg = require('imagemin-mozjpeg'),
 	  pug = require('gulp-pug'),
 	  sourcemaps = require('gulp-sourcemaps'),
-	  notify = require('gulp-notify');
+	  notify = require('gulp-notify'),
+      changed = require('gulp-changed');
 
 gulp.task('log', done => {
 	console.log('gulp done!')
@@ -18,6 +19,7 @@ gulp.task('log', done => {
 
 gulp.task('pug', done => {
 	gulp.src(['./pug/*.pug', '!./pug/_*.pug'])
+	.pipe(changed('./html/'))
 	.pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
 	.pipe(pug({
 		pretty: true
@@ -28,6 +30,7 @@ gulp.task('pug', done => {
 
 gulp.task('sass', done => {
 	gulp.src('./scss/style.scss')
+	.pipe(changed('./css/'))
 	.pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
 	.pipe(sourcemaps.init())
 	.pipe(sass())
@@ -42,6 +45,7 @@ gulp.task('sass', done => {
 
 gulp.task('js', done => {
 	gulp.src(['./js/src/*.js', './js/src/**/*.js'])
+	.pipe(changed('./js/min/'))
 	.pipe(plumber())
 	.pipe(uglify())
 	.pipe(gulp.dest('./js/min/'))
@@ -52,6 +56,7 @@ gulp.task('js', done => {
 // 画像圧縮
 gulp.task('img', done =>  {
 	gulp.src(['./_img/**/**', './_img/**'])
+	.pipe(changed('./img/'))
 	.pipe(imagemin([
 		pngquant({
 			quality: '65-80',  // 画質
