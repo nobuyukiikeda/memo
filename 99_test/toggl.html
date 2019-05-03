@@ -1,0 +1,86 @@
+<style>
+.sp-nav-menu{
+	position: fixed;
+	top: 0;
+	right: 0;
+	transform: translateX(100%);
+	transition: transform .4s ease-in-out;
+}
+
+.is-open .sp-nav-menu{
+	transform: translateX(0);
+}
+
+.nav-toggle-wrap{
+	position: fixed;
+	top: 10px;
+	right: 10px;
+	z-index: 99;
+	width: 36px;
+	height: 36px;
+}
+
+.nav-toggle{
+	position: relative;
+}
+
+.nav-toggle span{
+	display:block;
+	position: absolute;
+	width: 36px;
+	height: 4px;
+	background-color: #fff;
+	border-radius: 16px;
+	top: 0;
+	left: 0;
+	transition: transform .4s ease-in-out;
+}
+
+.nav-toggle span:first-child{
+
+}
+
+.nav-toggle span:nth-child(2){
+	top: 14px;
+}
+
+.nav-toggle span:last-child{
+	top: 28px;
+}
+
+.is-open .nav-toggle span:first-child{
+	top: 14px;
+	transform: rotate(135deg);
+}
+
+.is-open .nav-toggle span:nth-child(2){
+	transform: rotate(-135deg);
+}
+
+.is-open .nav-toggle span:last-child{
+	top: 14px;
+	transform: rotate(135deg);
+}
+</style>
+
+<div class="sp-nav">
+	<ul class="sp-nav-menu">
+		<li><a href="#">nav1</a></li>
+		<li><a href="#">nav2</a></li>
+		<li><a href="#">nav3</a></li>
+		<li><a href="#">nav4</a></li>
+	</ul>
+	<div class="nav-toggle-wrap">
+		<div class="nav-toggle">
+			<span></span><span></span><span></span>
+		</div>
+	</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	jQuery(function(){
+		jQuery('.nav-toggle-wrap').click(function(){
+			jQuery('.sp-nav').toggleClass('is-open');
+		});
+	});
+</script>

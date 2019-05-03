@@ -1,0 +1,97 @@
+<!-- SCSS -->
+<style>
+.site-header-sns-wrap{
+	display: block;
+	position: absolute;
+	right: 0;
+	top: 6px;
+	& > div{
+		display: inline-block;
+		margin-top: 4px;
+		@include mq{
+			margin-top: 6px;
+		}
+	}
+	@include mq{
+		top: 0;
+		right: auto;
+		left: 4px;
+	}
+}
+
+.site-header-sns a{
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	text-align: center;
+	@include mq{
+		width: 28px;
+		height: 28px;
+	}
+	&:hover{
+		opacity: .7;
+	}
+	i{
+		font-size: 24px;
+		line-height: 32px;
+		color: #fff;
+		@include mq{
+			font-size: 20px;
+			line-height: 28px;
+		}
+	}
+}
+</style>
+<!-- SCSS end -->
+<a href="https://www.facebook.com/sharer/sharer.php?u=' . get_permalink() . '" target="_blank" class="social-btn social-btn--fb">
+	<span class="social-icon"><i class="fa fa-lg fa-facebook-official"></i></span><span class="social-text">シェア</span></a>
+	<a href="https://twitter.com/share?url=' . get_permalink() . '" target="_blank" class="social-btn social-btn--tw">
+		<span class="social-icon"><i class="fa fa-lg fa-twitter"></i></span><span class="social-text">ツイート</span></a>
+		<a href="http://b.hatena.ne.jp/entry/' . get_permalink() . '" target="_blank" class="social-btn social-btn--hatebu">
+			<span class="social-icon"><i class="fa fa-lg fa-hatebu"></i></span><span class="social-text">はてブ</span></a>
+			<!-- jQuery -->
+			<script>
+// 取得するURL
+var url = "【シェア数を取得するURL】" ;
+
+// facebook
+$.ajax({
+	// オプションの指定
+	url: '//graph.facebook.com/?id=' + encodeURIComponent( url ) ,
+	dataType: 'jsonp' ,
+	// 取得に成功した時の処理
+	success:function( obj ) {
+		var count = 0 ;
+		//データが存在する場合だけ代入
+		if( obj.share ) {
+			count = obj.share.share_count ;
+		}
+		$('.fb_result .count').html( count );
+	} ,
+	//取得に失敗した時の処理
+	error:function() {
+		$('.fb_result .count').html(0);
+		return false;
+	} ,
+	//完了した時の処理
+	complete:function() {
+		return false ;
+	}
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

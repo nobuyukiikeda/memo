@@ -1,0 +1,197 @@
+// 変数
+$black: #222;
+$red: #FA3935;
+$link: #0099ff;
+
+$textColor: $black;
+
+$primary: #f00;
+$primaryLight: lighten($primary, 15%);
+$primaryDark: darken($primary, 15%);
+
+
+// ボーダースタイル
+$border: 1px solid #ccc;
+
+// 基本ゴシック
+$gothic: -apple-system, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "游ゴシック", YuGothic,Osaka, "ＭＳ Ｐゴシック", "MS PGothic", Sans-Serif;
+// 基本明朝
+$mincho: '游明朝体', 'YuMincho', '游明朝', 'Yu Mincho','ヒラギノ明朝 Pro W6', 'HiraMinPro-W6','ヒラギノ明朝 Pro W3', 'Hiragino Mincho Pro', 'ＭＳ 明朝', 'MS Mincho';
+// 端末標準英字フォント
+$sansSerif: 'Trebuchet MS', 'Comic Sans MS', 'Verdana', 'Arial', 'Courier New', 'sans-serif';
+// 端末標準セリフ
+$serif: 'Georgia', 'Times New Roman', 'Roman', 'serif';
+
+
+//クリアーフィックスmixin
+@mixin cf(){
+  &::before{
+	content: '';
+	display: table;
+}
+&::after{
+	content: '';
+	display: table;
+	clear: both;
+}
+}
+
+// FontAwesome
+@mixin awesome($size: 20px){
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  font-size: $size;
+}
+
+// リンク色変え
+@mixin link-colors($color) {
+	color: $color;
+	text-decoration: none;
+	&:hover {
+		color: lighten($color, 15%);
+		text-decoration: underline;
+	}
+	&:visited {
+		color: desaturate($color, 50%);
+	}
+}
+
+// シャドウ
+@mixin shadow() {
+	box-shadow: 0 8px 30px rgba(0,0,0,.2), 0 16px 60px rgba(0,0,0,.1);
+}
+
+// グラデーション
+@mixin btn_gradient($colorLight: $primaryLight, $colorDark: $primary) {
+  background-color: $color;
+  background: -webkit-gradient(linear, left top, left bottom, from($colorLight), to($colorDark));
+  background: linear-gradient($colorLight, $colorDark);
+  border: 1px solid $colorDark;
+}
+
+@mixin gradient($colorLight: $primaryLight, $colorDark: $primary) {
+  background: -webkit-gradient(linear, left top, left bottom, from($colorLight), to($colorDark));
+  background: linear-gradient($colorLight, $colorDark);
+}
+
+$mq-breakpoints: (
+	'xsmall': 374px,
+	'small' : 599px,
+	'medium': 767px,
+	'large' : 1023px,
+	'xlarge': 1199px,
+	);
+$mq-breakpoints-x: (
+	'xsmall': 375px,
+	'small' : 600px,
+	'medium': 768px,
+	'large' : 1024px,
+	'xlarge': 1200px,
+	);
+@mixin mq($breakpoint: large) {
+	@media screen and (max-width: #{map-get($mq-breakpoints, $breakpoint)}) {
+		@content;
+	}
+}
+@mixin mqx($breakpoint: large) {
+	@media screen and (min-width: #{map-get($mq-breakpoints-x, $breakpoint)}) {
+		@content;
+	}
+}
+
+@mixin ba-block($width: 100%, $height: 100%) {
+	display: block;
+	content: '';
+	width: $width;
+	height: $height;
+	position: absolute;
+}
+
+@mixin centering-elements($horizontal: true, $vertical: true) {
+	position: absolute;
+	@if $horizontal and $vertical {
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+  } @else if $horizontal {
+	 left: 50%;
+	 transform: translate(-50%, 0);
+ } @else if $vertical {
+	top: 50%;
+	transform: translate(0, -50%);
+}
+}
+@mixin text-truncate {
+ text-overflow: ellipsis;
+ white-space: nowrap;
+ overflow: hidden;
+}
+@mixin transition($speed: 0.4s) {
+ transition: all $speed;
+}
+
+
+/******
+アニメーション
+******/
+// パルス
+// ベースは 1.2s ease infinite
+@keyframes pulse {
+	0% {
+		transform: scale(1, 1);
+	}
+	50% {
+		opacity: 0.3;
+	}
+	100% {
+		transform: scale(1.5);
+		opacity: 0;
+	}
+}
+
+/******
+イージング
+******/
+// Cubic
+$easeInCubic    : cubic-bezier(0.550, 0.055, 0.675, 0.190);
+$easeOutCubic   : cubic-bezier(0.215, 0.610, 0.355, 1.000);
+$easeInOutCubic : cubic-bezier(0.645, 0.045, 0.355, 1.000);
+
+// Circ
+$easeInCirc     : cubic-bezier(0.600, 0.040, 0.980, 0.335);
+$easeOutCirc    : cubic-bezier(0.075, 0.820, 0.165, 1.000);
+$easeInOutCirc  : cubic-bezier(0.785, 0.135, 0.150, 0.860);
+
+// Expo
+$easeInExpo     : cubic-bezier(0.950, 0.050, 0.795, 0.035);
+$easeOutExpo    : cubic-bezier(0.190, 1.000, 0.220, 1.000);
+$easeInOutExpo  : cubic-bezier(1.000, 0.000, 0.000, 1.000);
+
+// Quad
+$easeInQuad     : cubic-bezier(0.550, 0.085, 0.680, 0.530);
+$easeOutQuad    : cubic-bezier(0.250, 0.460, 0.450, 0.940);
+$easeInOutQuad  : cubic-bezier(0.455, 0.030, 0.515, 0.955);
+
+// Quart
+$easeInQuart    : cubic-bezier(0.895, 0.030, 0.685, 0.220);
+$easeOutQuart   : cubic-bezier(0.165, 0.840, 0.440, 1.000);
+$easeInOutQuart : cubic-bezier(0.770, 0.000, 0.175, 1.000);
+
+// Quint
+$easeInQuint    : cubic-bezier(0.755, 0.050, 0.855, 0.060);
+$easeOutQuint   : cubic-bezier(0.230, 1.000, 0.320, 1.000);
+$easeInOutQuint : cubic-bezier(0.860, 0.000, 0.070, 1.000);
+
+// Sine
+$easeInSine     : cubic-bezier(0.470, 0.000, 0.745, 0.715);
+$easeOutSine    : cubic-bezier(0.390, 0.575, 0.565, 1.000);
+$easeInOutSine  : cubic-bezier(0.445, 0.050, 0.550, 0.950);
+
+// Back
+$easeInBack     : cubic-bezier(0.600, -0.280, 0.735, 0.045);
+$easeOutBack    : cubic-bezier(0.175,  0.885, 0.320, 1.275);
+$easeInOutBack  : cubic-bezier(0.680, -0.550, 0.265, 1.550);
+
+// 参考 https://easings.net/ja#

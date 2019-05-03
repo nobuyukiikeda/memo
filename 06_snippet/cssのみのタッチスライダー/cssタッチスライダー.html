@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keyword" content="">
+    <meta name="description" content="">
+    <style>
+    .slider-wrapper {
+        width: 600px;
+        padding: 5px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        background: #CCC;
+    }
+
+    .slider {
+        width: 850px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .slider>* {
+        -webkit-transform: translateZ(0px);
+    }
+
+    .slider-wrapper::-webkit-scrollbar {
+        display: none;
+        height: 0 !important;
+    }
+
+    .unit {
+        float: left;
+        width: 150px;
+        margin: 0 0 0 5px;
+        border: 1px solid #DDDDDD;
+        background: #EFEFEF;
+    }
+
+    .unit:first-child {
+        margin: 0;
+    }
+
+    .unit .img {
+        text-align: center;
+    }
+    </style>
+    <!-- <link rel="shortcut icon" href="favicon.ico" /> -->
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="slider-wrapper">
+            <div class="slider">
+                <div class="unit">
+                    <p class="img"><img src="" alt="" /></p>
+                    <p class="caption">sample</p>
+                </div><!-- /.unit -->
+                <div class="unit">
+                    <p class="img"><img src="" alt="" /></p>
+                    <p class="caption">sample</p>
+                </div><!-- /.unit -->
+                <div class="unit">
+                    <p class="img"><img src="" alt="" /></p>
+                    <p class="caption">sample</p>
+                </div><!-- /.unit -->
+                <div class="unit">
+                    <p class="img"><img src="" alt="" /></p>
+                    <p class="caption">sample</p>
+                </div><!-- /.unit -->
+                <div class="unit">
+                    <p class="img"><img src="" alt="" /></p>
+                    <p class="caption">sample</p>
+                </div><!-- /.unit -->
+            </div><!-- /.slider -->
+        </div><!-- /.slider-wrapper -->
+    </div>
+</body>
+
+</html>

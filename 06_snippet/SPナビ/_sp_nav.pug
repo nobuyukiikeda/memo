@@ -1,0 +1,111 @@
+header.header
+	.c-sp-toggle-wrap
+		.c-sp-toggle
+			span
+			span
+			span
+	.c-sp-nav-wrap
+		ul.c-sp-nav
+			li.c-sp-nav__list-wrap
+				a.c-sp-nav__list nav1
+			li.c-sp-nav__list-wrap
+				a.c-sp-nav__list nav2
+			li.c-sp-nav__list-wrap
+				a.c-sp-nav__list nav3
+			li.c-sp-nav__list-wrap
+				a.c-sp-nav__list nav4
+			li.c-sp-nav__list-wrap
+				a.c-sp-nav__list nav5
+
+.
+	<style type="scss">
+		*, *::before, *::after {
+		  box-sizing: border-box;
+		}
+		.c-sp-toggle-wrap {
+		  position: fixed;
+		  top: 24px;
+		  left: 24px;
+		  width: 40px;
+		  height: 40px;
+		  z-index: 9999;
+		  background-color: #fac;
+		  cursor: pointer;
+		}
+
+		.c-sp-toggle {
+		  position: relative;
+		}
+
+		.c-sp-toggle {
+		  span {
+			position: absolute;
+			width: 24px;
+			height: 2px;
+			left: 8px;
+			background-color: #333;
+			transition: all .4s ease-out;
+			&:first-child {
+			  top: 12px;
+			}
+			&:nth-child(2) {
+			  top: 20px;
+			}
+			&:last-child {
+			  top: 28px;
+			}
+		  }
+		}
+
+		.c-sp-nav-wrap {
+		  position: fixed;
+		  width: 100%;
+		  height: 100%;
+		  top: 0;
+		  left: -100%;
+		  padding: 80px 40px;
+		  background-color: rgba(0, 0, 0, .75);
+		  z-index: 0;
+		  transition: all .4s ease-out;
+		}
+
+		.c-sp-nav {
+		  position: relative;
+		  li {
+			color: #fff;
+		  }
+		  a {
+			color: #fff;
+		  }
+		}
+
+
+		.is-open {
+		  .c-sp-toggle {
+			span {
+			  &:first-child {
+				top: 20px;
+				transform: rotateZ(315deg);
+			  }
+			  &:nth-child(2) {
+				top: 20px;
+				transform: rotateZ(-315deg);
+			  }
+			  &:last-child {
+				top: 20px;
+				transform: rotateZ(315deg);
+			  }
+			}
+		  }
+		  .c-sp-nav-wrap {
+			transform: translate(100%, 0);
+		  }
+		}
+	</style>
+
+.
+	<script>
+	$(".c-sp-toggle-wrap").click(function(){
+		$(".header").toggleClass("is-open");
+	});
+	</script>
